@@ -17,7 +17,9 @@ $routeProvider
 
 .when('/about',{
 
-     templateUrl:'app/views/pages/about.html'
+	 templateUrl:'app/views/pages/about.html',
+	 controller:'Onclick',
+	 controllerAs:'clicks'
 
 })
 
@@ -47,6 +49,14 @@ $routeProvider
 
 
 	 templateUrl:'app/views/pages/users/logout.html'	
+})
+
+
+.when('/stackOverFLow',{
+
+	 templateUrl:'app/views/pages/stackOverFLow.html',
+	 controller:'Onclick',
+	 controllerAs:'clicks'
 })
 
 

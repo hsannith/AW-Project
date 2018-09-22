@@ -1,3 +1,58 @@
+<html>
+<style>
+
+
+
+</style>
 <div class="page-header">
-	<h1>hello {{main.username}} buchi</h1>
+	<h1>{{main.lastname}}'s Dashboard</h1>
+	<h4>If doesn't load please refresh</h4>
+
 </div>
+
+<div>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+</div>
+
+
+<br>
+
+<div align="center" style="width:100%;left:30%;border:2px solid black; top:800px;background-color: lightblue">
+		<h4>&nbsp; &nbsp;<b>Why Have I logged these actions?</b></h4>
+		<p style="font-family: Arial, Helvetica, sans-serif;text-align:left">&nbsp; &nbsp;I have logged the below 5 activities because in the real time I have observed that users mostly like to perform the below actions.</p>
+		<p style="font-family: Arial, Helvetica, sans-serif;text-align:left">&nbsp; &nbsp;<b>Upvotes:</b> The count of upvotes tells us what are all the answers liked by user for a given question.</p>
+		<p style="font-family: Arial, Helvetica, sans-serif;text-align:left">&nbsp; &nbsp;<b>Downvotes:</b> The count of downvotes tells us what are all the answers disliked by user for a given question.</p>
+		<p style="font-family: Arial, Helvetica, sans-serif;text-align:left">&nbsp; &nbsp;<b>Answer marked as favourite(*):</b> This tells how many answers are marked by an user as favourite.</p>
+		<p style="font-family: Arial, Helvetica, sans-serif;text-align:left">&nbsp; &nbsp;<b>Mouse hover on Certified Answer(Green tick):</b> This tells us whether user has read certified answer.</p>
+		<p style="font-family: Arial, Helvetica, sans-serif;text-align:left">&nbsp; &nbsp;<b>Number of times user tried to copy text/code:</b> This tells us whether user has liked a code/text and tried to copy it.</p>
+		
+		<br>
+        <div style="text-align:left;">
+		<h4>&nbsp; &nbsp;<b>Analysis and findings</b></h4>
+		
+		 <p>&nbsp; &nbsp; 1) I have observed that one of the most common activity performed by a user is upvoting or downvoting an answer. </p>
+		 <p>&nbsp; &nbsp; 2) I have observed most of the users wish to mouse hover only on the certified answer(having green tick). </p>
+		 <p>&nbsp; &nbsp; 3) I have observed that if an user likes an answer he tries to copy the code and implement it on his machine. </p>
+		</div>
+
+		<br>
+		<div style="text-align:left;">
+		<h4>&nbsp; &nbsp;<b>Explaining the patterns</b></h4>
+		
+	    <p style="text-align: left">&nbsp; &nbsp; From the intercative visualization we can see that number of upvotes,downvotes and hovering on the certified answer 
+			count is more  compared to others.Which clearly explains that the actions tracked above are the most frequently &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;performed actions 
+			by the users </p>
+		</div>
+
+		<br>
+        <div style="text-align:left;">
+		<h4>&nbsp; &nbsp;<b>Steps to find the results</b></h4>
+		
+		 <p>&nbsp; &nbsp; 1) I have used angular events to track the user activities on the stackoveflow page and stored it to give an interactive visualization </p>
+		</div>
+	
+	
+	</div>
+
+
+  </html>

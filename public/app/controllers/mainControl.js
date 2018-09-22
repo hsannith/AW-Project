@@ -9,6 +9,7 @@ angular.module('mainControl',['authService'])
 	var app=this;
 
 
+
 	$rootScope.$on('$routeChangeStart',function(){
 
 		if(Auth.isLoggedIn())
@@ -20,8 +21,20 @@ angular.module('mainControl',['authService'])
   		Auth.getUser().then(function(data){
   		//console.log(data.data.username);
 
-  		app.username=data.data.username;
-  		app.usermail=data.data.email;
+		 /* $http.post('/api/loginhist',data.data).then(function(data){
+
+		  });   */
+
+
+		  console.log('return data');
+		  console.log(data);
+  		  app.username=data.data.username;
+		  app.usermail=data.data.email;
+		  app.lastlogin=data.data.lastlogin;
+		  app.firstname=data.data.firstname;
+		  app.lastname=data.data.lastname;
+		  app.contact=data.data.contact;
+  		
   		});
   		}
   		else
@@ -39,7 +52,7 @@ angular.module('mainControl',['authService'])
     {
         app.errorMessage=false;
         // console.log(this.data);
-        console.log('hitesh');
+       // console.log('hitesh');
 
           Auth.login(app.logindata).then(function(responsedata){
           //	console.log(responsedata.data.message);
@@ -52,7 +65,7 @@ angular.module('mainControl',['authService'])
                 
 
                 $timeout(function() {
-                	 $location.path('/about');
+                	 $location.path('/home');
                 	 app.logindata="";
                 	app.successMessage=false;
                 }, 2000);
@@ -73,9 +86,9 @@ angular.module('mainControl',['authService'])
     	$location.path('/logout');
     	$timeout(function() {
 
-    		$location.path('/');
+    		$location.path('/login');
 
-    	},200);
+    	},1000);
     };
 
 });

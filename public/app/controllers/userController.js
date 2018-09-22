@@ -22,7 +22,7 @@ var app=this;
                 app.successMessage=responsedata.data.message;
                   
                 $timeout(function() {
-                	 $location.path('/');
+                	 $location.path('/login');
                 }, 2000);
 
                

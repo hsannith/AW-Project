@@ -20,6 +20,7 @@
     <!-- Angular controller-->
     <script src="app/controllers/userController.js"></script>
     <script src="app/controllers/mainControl.js"></script>
+    <script src="app/controllers/clickController.js"></script>
 
     <!-- services-->
     <script src="app/services/userServices.js"></script>
@@ -34,12 +35,7 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+                
                 <a class="navbar-brand page-scroll" href="/">Welcome</a>
             </div>
 
@@ -59,19 +55,17 @@
                         <a  ng-show="!main.LoggedIn" class="page-scroll" href="/register">Register</a>
                     </li>
                      <li class="">
-                        <a  class="page-scroll" href="/about">About</a>
+                        <a  ng-show="main.LoggedIn" class="page-scroll" href="/about">Dashboard</a>
                     </li>
                     <li class="">
                         <a  ng-show="main.LoggedIn" class="page-scroll" href="#" ng-click="main.logout();">Logout</a>
                     </li>
                     <li class="">
-                        <a  ng-show="main.LoggedIn" class="page-scroll" href="/profile">Hello {{main.username}}</a>
+                        <a  ng-show="main.LoggedIn" class="page-scroll" href="/profile"> {{main.lastname}}'s Profile</a>
                     </li>
                    
                    
-                    <li class="">
-                        <a ng-show="main.isLoggedIn" class="page-scroll" href="/profile">Hello {{ main.username }}</a>
-                    </li>
+                    
                 </ul>
             </div>
 
@@ -82,9 +76,124 @@
 
 
     
-    <div  ng-view></div>
+    
+    <div  ng-view>
+      
+    </div>
      <script type="text/javascript" src="assets/js/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <!-- <script>
+
+
+        window.onload = function ($rootScope) {
+        
+          //  console.log('hitesh')
+      //  console.log($rootScope.upvote);
+      var upvote=localStorage.getItem('upvote');
+      var downvote=localStorage.getItem('downvote');
+      var mouseover=localStorage.getItem('mouseover');
+      var favourite=localStorage.getItem('favourite');
+      
+        
+        var chart = new CanvasJS.Chart("chartContainer", {
+            exportEnabled: true,
+            animationEnabled: true,
+            title:{
+                text: "User Activity"
+            },
+            legend:{
+                cursor: "pointer",
+                itemclick: explodePie
+            },
+            data: [{
+                type: "pie",
+                showInLegend: true,
+                toolTipContent: "{}: <strong>{y}</strong>",
+                indexLabel: "{name} - {y}",
+                dataPoints: [
+                    { y: upvote, name: "upvotes", exploded: true },
+                    { y: downvote, name: "downvotes" },
+                    { y: mouseover, name: "Mouse hover on certified answer" },
+                    { y: favourite, name: "Answers marked by user as favourite(*)" },
+                    { y : 3,name:"tracker" }
+                    
+                ]
+            }]
+        });
+        chart.render();
+        }
+        
+        function explodePie (e) {
+            if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+                e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+            } else {
+                e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+            }
+            e.chart.render();
+        
+        }
+        </script> -->
+
+        <script>
+                window.onload = function () {
+                
+      var upvote=localStorage.getItem('upvote');
+      var downvote=localStorage.getItem('downvote');
+      var mouseover=localStorage.getItem('mouseover');
+      var favourite=localStorage.getItem('favourite');
+      var copy=localStorage.getItem('copy');
+      
+
+                var chart = new CanvasJS.Chart("chartContainer", {
+                    theme: "dark2",
+                    exportFileName: "Doughnut Chart",
+                    exportEnabled: true,
+                    animationEnabled: true,
+                    title:{
+                        text: "User Activity"
+                    },
+                    legend:{
+                        cursor: "pointer",
+                        itemclick: explodePie
+                    },
+                    data: [{
+                        type: "doughnut",
+                        innerRadius: 90,
+                        showInLegend: true,
+                        toolTipContent: "<b>{name}</b>: {y} ",
+                        indexLabel: "{name} - {y}",
+                        dataPoints: [
+                            { y: upvote, name:  "upvotes" },
+                            { y: downvote, name: "downvotes" },
+                            { y: mouseover, name: "Mouse hover on certified answer(Green tick)" },
+                            { y: favourite, name: "Answers marked by user as favourite(*)" },
+                            { y: copy, name: "Number of times user tried to copy text/code" }
+                           
+                        ]
+                    }]
+                });
+                chart.render();
+                
+                function explodePie (e) {
+                    if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+                        e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+                    } else {
+                        e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+                    }
+                    e.chart.render();
+                }
+                
+                }
+                </script>
+
+
+
+
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
 
   </body>
 </html>

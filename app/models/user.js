@@ -3,13 +3,18 @@ var Schema=mongoose.Schema;
 var bcrypt=require('bcrypt-nodejs');
 
 var userstable=new Schema({
+
+	firstname:{type:String,required:true},
+	lastname:{type:String,required:true},
 	username:{type:String,unique:true,required:true},
 	password:{type:String,required:true},
-	email:{type:String,unique:true,required:true}
-
+	email:{type:String,unique:true,required:true},
+	contact:{type:Number,required:true},
+	lastlogin:[{type:String}]
+	//upvotes:{type:Number}
 
 	});
-userstable.pre('save',function(next){
+/*userstable.pre('save',function(next){
 	var user=this;
 	bcrypt.hash(user.password,null,null,function(err,hash){
 if(err) return next(err);
@@ -17,7 +22,7 @@ if(err) return next(err);
 		next();
 	});
 	
-});
+});*/
 
 
 bcrypt.hash("bacon", null, null, function(err, hash) {
@@ -28,6 +33,9 @@ bcrypt.hash("bacon", null, null, function(err, hash) {
 
 // Method to compare passwords in API (when user logs in) 
 userstable.methods.comparePassword = function(password) {
+
+	console.log(""+this.password);
+	console.log(" "+password);
     return bcrypt.compareSync(password, this.password); // Returns true if password matches, false if doesn't
 };
 

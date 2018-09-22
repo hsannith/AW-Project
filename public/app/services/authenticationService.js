@@ -11,6 +11,7 @@ angular.module('authService',[])
 		return $http.post('/api/authenticate',logindata).then(function(data){
 				//console.log(data);
 				authToken.setToken(data.data.token);
+				data.data.lastlogin
 			return data;
 		});
 	};

@@ -6,17 +6,34 @@
 
 <form  ng-submit="register.registerUser(data);">
 
+	<label>First name:</label>
+	<input  class="form-control"type="text" name="firstname" placeholder="Enter First Name" ng-model="register.data.firstname">
+	<br>
+
+	<label>Last name:</label>
+	<input  class="form-control"type="text" name="lastname" placeholder="Enter Last Name" ng-model="register.data.lastname">
+	<br>
+
+
+
+	<label>Username:</label>
+	<input  class="form-control" type="text" name="username" placeholder="Enter Username" ng-model="register.data.username">
+	<br>
+
+	<label>Password:</label>
+	<input  class="form-control"type="password" name="password" placeholder="Enter Password" ng-model="register.data.password">
+	<br>
+
 	<label>Email id:</label>
 	<input class="form-control" type="text" name="email" placeholder="Enter Email id" ng-model="register.data.email">
 	<br>
 
-	<label>Username:</label>
-	<input  class="form-control" type="text" name="username" placeholder="ENter Username" ng-model="register.data.username">
+
+	
+	<label>contact:</label>
+	<input  class="form-control"type="number" name="contact" placeholder="ENter Contact number" ng-model="register.data.contact">
 	<br>
 
-	<label>Password:</label>
-	<input  class="form-control"type="password" name="password" placeholder="ENter Pass word" ng-model="register.data.password">
-	<br>
 
 
 <button class="btn btn-primary" type="submit">Register</button>
